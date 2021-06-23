@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Circular from '../layout/Circular';
+import Repos from '../repos/Repos';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,12 +16,15 @@ import {
 export class User extends Component {
   componentDidMount() {
     this.props.getUser(this.props.match.params.login);
+    this.props.getUserRepos(this.props.match.params.login);
   }
 
   static propTypes = {
     loading: PropTypes.bool,
     user: PropTypes.object.isRequired,
+    repos: PropTypes.array.isRequired,
     getUser: PropTypes.func.isRequired,
+    getUserRepos: PropTypes.func.isRequired,
   };
 
   render() {
@@ -40,7 +44,7 @@ export class User extends Component {
       hireable,
     } = this.props.user;
 
-    const { loading } = this.props;
+    const { loading, repos } = this.props;
 
     if (loading) return <Circular />;
 
@@ -125,6 +129,8 @@ export class User extends Component {
               </div>
             </div>
           </div>
+          Last 5 Public Repositories
+          <Repos repos={repos} />
         </div>
       </Fragment>
     );
