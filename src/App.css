@@ -349,8 +349,16 @@ img {
 .bg-light,
 .badge-light,
 .alert-light {
-  background: var(--light-color);
-  color: #333;
+  display: flex;
+  background: #cdd9e5;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  border-radius: 0.3rem;
+  align-items: center;
+}
+
+.alert-light span {
+  margin-left: 1rem;
 }
 
 .btn-dark,
