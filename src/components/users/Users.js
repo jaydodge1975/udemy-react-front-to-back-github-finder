@@ -1,6 +1,5 @@
 import React from 'react';
 import UserItem from './UserItem';
-// import Spinner from '../layout/Spinner';
 import Circular from '../layout/Circular';
 import PropTypes from 'prop-types';
 
@@ -9,8 +8,8 @@ const Users = ({ loading, users }) => {
     return <Circular />;
   } else {
     return (
-      <div style={userStyle}>
-        {users.map((user) => (
+      <div className='usersGrid' style={userStyle}>
+        {users.map(user => (
           <UserItem key={user.id} user={user} />
         ))}
       </div>
