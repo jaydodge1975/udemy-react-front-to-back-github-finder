@@ -4,7 +4,7 @@ import RepoItem from './RepoItem';
 
 const Repos = ({ repos }) => {
   console.log(repos);
-  return repos.map(repo => <RepoItem repo={repo} key={repos.id} />);
+  return repos.map(repo => <RepoItem repo={repo} key={repo.id} />);
 };
 
 Repos.propTypes = {
